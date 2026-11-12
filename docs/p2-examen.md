@@ -271,3 +271,7 @@ Cómo leer "valor anterior", con detalle por probe en la salida del script:
 - **Hechos que el usuario dijo y Memora no registró (defecto 2).** No pueden ser distractores, pero tampoco se preguntan. Un agente que los recuerde no gana ni pierde puntos.
 - **Normalización.** Acepta fechas ISO y "June 11, 2025"; no acepta "06/11/2025" ni números escritos en palabras. P3 tiene que pedir ISO y dígitos.
 - **Scripts de P2a en `/tmp`.** P2a usó scripts descartables en `/tmp` para algunas tablas de su informe (estratos de `stable`, tamaño de las notas). No están versionados; las tablas de este informe salen de `exam/questions.py`, `exam/smoke.py` y scripts inline cuyo resultado se muestra.
+
+## Decisiones
+
+- **"dislike" después de un gusto borrado (2026-11-12).** Cuenta como `invented` en el conteo oficial (estricto), como recomendaba §6. La lectura indulgente, en la que esos casos pasan a `correct`, se reporta **siempre** como columna extra, calculada con `negates_removed_preference(question, grade)`. Ejemplo: weekly/software_engineer s35, Bonobo borrado en la s30; "dislike" es `invented` en la cuenta oficial y `correct` en la indulgente.
