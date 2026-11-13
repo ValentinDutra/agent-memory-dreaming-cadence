@@ -6,8 +6,10 @@ every result is reported with and without them. The rule reads the truth and the
 - unsaid_item: "Is X on the list?" while X holds, and the session where X started holding never says all of X's words
   (Memora stores "Ms. Anya Sharma (Data Scientist, Predictive Analytics Unit)"; the user said "Ms. Anya Sharma").
 - relative_date: an expense the user dated "last night" or "yesterday", which Memora always dates on the session's
-  day. A dream writes the day before, so the question about that day, and a weekly total whose first day is that day,
-  cannot be answered. Steps are never dated that way in weekly or monthly.
+  day. A dream writes the day before, so the question about that day, the question about the same expense type on the
+  day before once it is logged (the user spent on two of them that day: "$45.81 dinner last night" in s429 joins
+  the 2025-06-19 dinner of s402), and a weekly total whose first day is that day, cannot be answered. Steps are never
+  dated that way in weekly or monthly.
 - completed_task: "Is X on the to-do list?" while X holds, where Memora added X in a session whose user turn naming X
   says it is done ("I completed a task to coordinate with the research team"). A dream that believes the user keeps X
   off the list.
@@ -21,6 +23,7 @@ Run: uv run python -m exam.unreachable weekly monthly
 import re
 import sys
 from collections import Counter
+from datetime import date, timedelta
 from functools import cache
 from typing import Literal
 
@@ -34,6 +37,8 @@ Reason = Literal["unsaid_item", "relative_date", "completed_task"]
 REASONS = ("unsaid_item", "relative_date", "completed_task")
 
 RELATIVE_DAY = re.compile(r"\b(?:last night|yesterday)\b", flags=re.IGNORECASE)
+# "I just had a $9.81 lunch today, mostly leftovers from yesterday" (monthly/creative_designer s132) is today's lunch.
+TODAY = re.compile(r"\btoday\b", flags=re.IGNORECASE)
 # Past tense only: "I need to complete the report" announces a task.
 COMPLETED = re.compile(r"\b(?:completed|finished|done with|wrapped up|took care of|crossed off)\b", flags=re.IGNORECASE)
 NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
@@ -66,11 +71,20 @@ def question_reason(question: Question, timeline: Timeline, sessions: dict[int, 
         started = holding_version(timeline, question.fact, question.session_id).valid_from
         if (question.fact, started) in shifted_dates:
             return "relative_date"
+        asked = holding_version(timeline, question.fact, question.session_id).value
+        for fact, logged_in in shifted_dates:
+            shifted = holding_version(timeline, fact, logged_in).value
+            if logged_in <= question.session_id and shifted["expense_type"] == asked["expense_type"] and day_before(shifted["date"]) == asked["date"]:
+                return "relative_date"
     if question.domain == "expense" and question.probe == "aggregate":
         first_day = re.search(r"dated from (\d{4}-\d{2}-\d{2})", question.prompt).group(1)
         if any(sessions[started].date == first_day and started <= question.session_id for _, started in shifted_dates):
             return "relative_date"
     return None
+
+
+def day_before(iso_date: str) -> str:
+    return (date.fromisoformat(iso_date) - timedelta(days=1)).isoformat()
 
 
 def holding_version(timeline: Timeline, fact, session_id: int):
@@ -88,7 +102,7 @@ def relative_dated_expenses(timeline: Timeline, sessions: dict[int, Session]) ->
         session = sessions[version.valid_from]
         amount = round(float(version.value["amount"]), 2)
         turn = next((turn for turn in session.turns if amount in numbers(turn.message)), None)
-        if turn and RELATIVE_DAY.search(turn.message) and version.value["date"] == session.date:
+        if turn and RELATIVE_DAY.search(turn.message) and not TODAY.search(turn.message) and version.value["date"] == session.date:
             shifted.add(((version.domain, version.key), version.valid_from))
     return shifted
 

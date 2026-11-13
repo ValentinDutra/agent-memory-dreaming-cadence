@@ -21,7 +21,7 @@
 - **Costo de P7, medido y proyectado** (§4.3). Se ajustó sobre 2.666 sueños y 1.012 exámenes cacheados y se comprobó corriendo `every-5` sobre una persona monthly entera (619 sesiones). Sueños: proyectado $0,1817, pagado $0,1777 (+2 %). Exámenes: proyectado $0,1283, pagado $0,1076 (+19 %, del lado seguro).
   - **Monthly completo, por persona:** $0,20 (`every-50`) a $0,66 (`every-1`); `triggered-phrases-any` $0,54. Los exámenes cada 7 son $0,12 por política.
   - **Las 10 personas monthly × las 7 políticas recomendadas** (§6): ≈ $22 sin repetir. Supera lo que queda en la organización (≈ $2,3), así que P7 necesita una muestra o más presupuesto. Esa decisión queda abierta (§6).
-- **Decisión (c) implementada.** Hay 395 preguntas monthly y 151 weekly que ningún sueño fiel puede acertar. Quedan en el examen, marcadas por una regla sin modelo (`exam/unreachable.py`), y cada resultado sale con y sin ellas.
+- **Decisión (c) implementada.** Hay 395 preguntas monthly (426 desde el arreglo de P6a, `docs/p6-inventadas.md`) y 151 weekly que ningún sueño fiel puede acertar. Quedan en el examen, marcadas por una regla sin modelo (`exam/unreachable.py`), y cada resultado sale con y sin ellas.
 
 | Rol | Ruta |
 | --- | --- |
@@ -115,8 +115,8 @@ El detalle, con las secciones citadas, está en P5a §2 y P5b §2.
 | | weekly | monthly |
 | --- | --: | --: |
 | Preguntas | 4.039 | 18.214 |
-| Marcadas | 151 (3,7 %) | 395 (2,2 %) |
-| de ellas content / expense / todo | 57 / 89 / 5 | 164 / 223 / 8 |
+| Marcadas | 151 (3,7 %) | 395 (2,2 %); 426 (2,3 %) desde P6a |
+| de ellas content / expense / todo | 57 / 89 / 5 | 164 / 223 / 8; 164 / 254 / 8 desde P6a |
 
 Efecto: sacar las marcadas sube la precisión entre 0,4 y 1,4 puntos y nunca cambian el orden de las políticas (tabla del encabezado). Casi no pesan sobre la cadencia, como anticipaba P4: son errores del texto de Memora, no del momento en que se sueña.
 
@@ -265,5 +265,5 @@ Desglose de P5:
   - Los veredictos del detector se guardan bajo el nombre del detector (`decide/<detector>/`), no bajo el de la política. Así las políticas que usan el mismo detector comparten las llamadas.
   - `policies/triggered_run.py` tiene su propia `Every` mínima (`session_id % k`), que en estos datos decide igual que la de `policies/fixed.py`. `policies/run.py` usa la de P5a.
 - **Choque de cachés al integrar.** Los mismos pedidos hechos en dos worktrees dan respuestas distintas. Me quedé con los de P5a, así que las tablas weekly de P5b solo se reproducen gratis en el worktree de P5b. Para P7: un solo caché, este, y nunca correr la misma política en dos worktrees.
-- **`invented` crece después de la s210** (2 → 42 con every-5). No lo diagnostiqué.
+- **`invented` crece después de la s210** (2 → 42 con every-5). Lo diagnosticó P6 (`docs/p6-inventadas.md`): 25 de las 42 son dos gastos "last night" de Memora, y con el arreglo de P6a a `exam/unreachable.py` "oficial sin marcadas" de §4.2 pasa de 1575/1764 (89,3 %) a 1575/1761 (89,4 %). Los números de s1–210 no cambian.
 - **El costo de los exámenes iguala o supera al de soñar** con k ≥ 10 ($0,12 por política y persona monthly). Bajarlo sin sesgar la fase obliga a muestrear preguntas dentro de cada examen, no exámenes. No lo probé.
