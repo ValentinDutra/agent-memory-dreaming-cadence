@@ -99,14 +99,17 @@ class BudgetedClient:
         if spent + worst_case > self.limit_dollars:
             raise BudgetExceeded(f"{self.budget_name}: spent ${spent:.4f}, next call up to ${worst_case:.4f}, cap ${self.limit_dollars:.2f}")
 
-        response = self.client().messages.create(
+        # The SDK refuses non-streaming requests whose max_tokens could take over 10 minutes (about 21k tokens);
+        # a dream that rewrites monthly notes needs more.
+        with self.client().messages.stream(
             model=MODEL,
             thinking=self.thinking,
             output_config={"effort": self.effort},
             max_tokens=max_tokens,
             system=system,
             messages=[{"role": "user", "content": user}],
-        )
+        ) as stream:
+            response = stream.get_final_message()
         usage = response.usage.model_dump()
         record = {
             "request": request,

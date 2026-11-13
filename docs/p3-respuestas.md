@@ -257,3 +257,10 @@ Los prompts quedan lejos de los 100k tokens: el más grande de los 812 pedidos d
 - **Las notas perfectas usan las etiquetas de Memora** ("music / genres", "work tasks"). Un dream va a usar sus propias palabras; si se aparta mucho, P4 lo va a ver como error de memoria.
 - **Tamaño de las notas monthly:** 20–24 KB y 451–491 líneas. Pasan los 16.000 caracteres de `view` del memory tool y las 200 líneas de `MEMORY.md`. Si P4 usa el memory tool, conviene un archivo por sección.
 - **El caché de respuestas no viaja entre worktrees.** `results/` está ignorado por git, así que las respuestas de P3a y P3b quedaron en sus worktrees. Las de P3 están en este.
+
+## Decisiones
+
+Registradas al empezar P4 (2026-11-12).
+
+- **El error de 1 centavo en los totales de gastos se deja como está.** Aparece solo en weekly y cuesta ≤ 2,3 pp en expense (0 en monthly). Es un límite conocido y medido del que responde, no de la memoria. No se cambia `exam/grading.py`: la tolerancia de ±$0,01 queda descartada (§6).
+- **El dream no mantiene totales semanales.** Confirma la decisión de P3 (§3.1): sin totales precalculados, la aritmética queda del lado del que responde y no se mezcla con los errores de memoria.
