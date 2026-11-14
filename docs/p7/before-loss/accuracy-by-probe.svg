@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="775" height="400" viewBox="0 0 775 400">
+<rect width="100%" height="100%" fill="white"/>
+<text x="327.5" y="30.0" font-size="14" text-anchor="middle" font-weight="bold" font-family="Helvetica, Arial, sans-serif">Official accuracy by probe, s1-210 (mean over personas, 95% interval)</text>
+<line x1="70.0" y1="340.0" x2="585.0" y2="340.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="64.0" y="344.0" font-size="11" text-anchor="end" font-weight="normal" font-family="Helvetica, Arial, sans-serif">0</text>
+<line x1="70.0" y1="280.0" x2="585.0" y2="280.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="64.0" y="284.0" font-size="11" text-anchor="end" font-weight="normal" font-family="Helvetica, Arial, sans-serif">20</text>
+<line x1="70.0" y1="220.0" x2="585.0" y2="220.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="64.0" y="224.0" font-size="11" text-anchor="end" font-weight="normal" font-family="Helvetica, Arial, sans-serif">40</text>
+<line x1="70.0" y1="160.0" x2="585.0" y2="160.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="64.0" y="164.0" font-size="11" text-anchor="end" font-weight="normal" font-family="Helvetica, Arial, sans-serif">60</text>
+<line x1="70.0" y1="100.0" x2="585.0" y2="100.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="64.0" y="104.0" font-size="11" text-anchor="end" font-weight="normal" font-family="Helvetica, Arial, sans-serif">80</text>
+<line x1="70.0" y1="40.0" x2="585.0" y2="40.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="64.0" y="44.0" font-size="11" text-anchor="end" font-weight="normal" font-family="Helvetica, Arial, sans-serif">100</text>
+<line x1="70.0" y1="340.0" x2="585.0" y2="340.0" stroke="#000" stroke-width="1"/>
+<line x1="70.0" y1="40.0" x2="70.0" y2="340.0" stroke="#000" stroke-width="1"/>
+<text x="327.5" y="376.0" font-size="12" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif"></text>
+<text x="26.0" y="190.0" font-size="12" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif" transform="rotate(-90 26.0 190.0)">% correct</text>
+<text x="121.5" y="356.0" font-size="11" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif">new</text>
+<rect x="83.0" y="340.0" width="10" height="0.0" fill="#7f7f7f"/>
+<line x1="88.5" y1="340.0" x2="88.5" y2="340.0" stroke="#000" stroke-width="1"/>
+<rect x="94.0" y="318.6" width="10" height="21.4" fill="#c6dbef"/>
+<line x1="99.5" y1="320.5" x2="99.5" y2="316.6" stroke="#000" stroke-width="1"/>
+<rect x="105.0" y="279.6" width="10" height="60.4" fill="#9ecae1"/>
+<line x1="110.5" y1="289.4" x2="110.5" y2="269.9" stroke="#000" stroke-width="1"/>
+<rect x="116.0" y="230.9" width="10" height="109.1" fill="#6baed6"/>
+<line x1="121.5" y1="234.8" x2="121.5" y2="227.0" stroke="#000" stroke-width="1"/>
+<rect x="127.0" y="147.1" width="10" height="192.9" fill="#3182bd"/>
+<line x1="132.5" y1="153.0" x2="132.5" y2="141.3" stroke="#000" stroke-width="1"/>
+<rect x="138.0" y="65.3" width="10" height="274.7" fill="#08519c"/>
+<line x1="143.5" y1="71.2" x2="143.5" y2="59.5" stroke="#000" stroke-width="1"/>
+<rect x="149.0" y="80.9" width="10" height="259.1" fill="#d95f02"/>
+<line x1="154.5" y1="86.8" x2="154.5" y2="75.1" stroke="#000" stroke-width="1"/>
+<text x="224.5" y="356.0" font-size="11" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif">recent_change</text>
+<rect x="186.0" y="123.1" width="10" height="216.9" fill="#7f7f7f"/>
+<line x1="191.5" y1="126.8" x2="191.5" y2="119.4" stroke="#000" stroke-width="1"/>
+<rect x="197.0" y="231.3" width="10" height="108.7" fill="#c6dbef"/>
+<line x1="202.5" y1="237.4" x2="202.5" y2="225.3" stroke="#000" stroke-width="1"/>
+<rect x="208.0" y="249.0" width="10" height="91.0" fill="#9ecae1"/>
+<line x1="213.5" y1="260.6" x2="213.5" y2="237.4" stroke="#000" stroke-width="1"/>
+<rect x="219.0" y="219.0" width="10" height="121.0" fill="#6baed6"/>
+<line x1="224.5" y1="221.6" x2="224.5" y2="216.5" stroke="#000" stroke-width="1"/>
+<rect x="230.0" y="114.3" width="10" height="225.7" fill="#3182bd"/>
+<line x1="235.5" y1="126.8" x2="235.5" y2="101.8" stroke="#000" stroke-width="1"/>
+<rect x="241.0" y="70.0" width="10" height="270.0" fill="#08519c"/>
+<line x1="246.5" y1="84.1" x2="246.5" y2="55.8" stroke="#000" stroke-width="1"/>
+<rect x="252.0" y="57.2" width="10" height="282.8" fill="#d95f02"/>
+<line x1="257.5" y1="66.5" x2="257.5" y2="47.9" stroke="#000" stroke-width="1"/>
+<text x="327.5" y="356.0" font-size="11" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif">stable</text>
+<rect x="289.0" y="340.0" width="10" height="0.0" fill="#7f7f7f"/>
+<line x1="294.5" y1="340.0" x2="294.5" y2="340.0" stroke="#000" stroke-width="1"/>
+<rect x="300.0" y="152.3" width="10" height="187.7" fill="#c6dbef"/>
+<line x1="305.5" y1="167.6" x2="305.5" y2="137.1" stroke="#000" stroke-width="1"/>
+<rect x="311.0" y="78.7" width="10" height="261.3" fill="#9ecae1"/>
+<line x1="316.5" y1="90.0" x2="316.5" y2="67.5" stroke="#000" stroke-width="1"/>
+<rect x="322.0" y="65.7" width="10" height="274.3" fill="#6baed6"/>
+<line x1="327.5" y1="77.8" x2="327.5" y2="53.7" stroke="#000" stroke-width="1"/>
+<rect x="333.0" y="63.6" width="10" height="276.4" fill="#3182bd"/>
+<line x1="338.5" y1="70.6" x2="338.5" y2="56.7" stroke="#000" stroke-width="1"/>
+<rect x="344.0" y="59.2" width="10" height="280.8" fill="#08519c"/>
+<line x1="349.5" y1="68.6" x2="349.5" y2="49.8" stroke="#000" stroke-width="1"/>
+<rect x="355.0" y="62.7" width="10" height="277.3" fill="#d95f02"/>
+<line x1="360.5" y1="72.7" x2="360.5" y2="52.7" stroke="#000" stroke-width="1"/>
+<text x="430.5" y="356.0" font-size="11" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif">never_existed</text>
+<rect x="392.0" y="41.3" width="10" height="298.7" fill="#7f7f7f"/>
+<line x1="397.5" y1="42.5" x2="397.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="403.0" y="41.3" width="10" height="298.7" fill="#c6dbef"/>
+<line x1="408.5" y1="42.5" x2="408.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="414.0" y="41.3" width="10" height="298.7" fill="#9ecae1"/>
+<line x1="419.5" y1="42.5" x2="419.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="425.0" y="41.3" width="10" height="298.7" fill="#6baed6"/>
+<line x1="430.5" y1="42.5" x2="430.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="436.0" y="40.0" width="10" height="300.0" fill="#3182bd"/>
+<line x1="441.5" y1="40.0" x2="441.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="447.0" y="40.0" width="10" height="300.0" fill="#08519c"/>
+<line x1="452.5" y1="40.0" x2="452.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="458.0" y="40.0" width="10" height="300.0" fill="#d95f02"/>
+<line x1="463.5" y1="40.0" x2="463.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<text x="533.5" y="356.0" font-size="11" text-anchor="middle" font-weight="normal" font-family="Helvetica, Arial, sans-serif">aggregate</text>
+<rect x="495.0" y="340.0" width="10" height="0.0" fill="#7f7f7f"/>
+<line x1="500.5" y1="340.0" x2="500.5" y2="340.0" stroke="#000" stroke-width="1"/>
+<rect x="506.0" y="297.6" width="10" height="42.4" fill="#c6dbef"/>
+<line x1="511.5" y1="307.9" x2="511.5" y2="287.4" stroke="#000" stroke-width="1"/>
+<rect x="517.0" y="202.0" width="10" height="138.0" fill="#9ecae1"/>
+<line x1="522.5" y1="206.1" x2="522.5" y2="197.9" stroke="#000" stroke-width="1"/>
+<rect x="528.0" y="140.8" width="10" height="199.2" fill="#6baed6"/>
+<line x1="533.5" y1="145.3" x2="533.5" y2="136.4" stroke="#000" stroke-width="1"/>
+<rect x="539.0" y="127.9" width="10" height="212.1" fill="#3182bd"/>
+<line x1="544.5" y1="163.2" x2="544.5" y2="92.6" stroke="#000" stroke-width="1"/>
+<rect x="550.0" y="90.9" width="10" height="249.1" fill="#08519c"/>
+<line x1="555.5" y1="141.8" x2="555.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<rect x="561.0" y="90.9" width="10" height="249.1" fill="#d95f02"/>
+<line x1="566.5" y1="141.8" x2="566.5" y2="40.0" stroke="#000" stroke-width="1"/>
+<circle cx="608.0" cy="60.0" r="5" fill="#7f7f7f" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="64.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">never</text>
+<circle cx="608.0" cy="78.0" r="5" fill="#c6dbef" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="82.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">every-50</text>
+<circle cx="608.0" cy="96.0" r="5" fill="#9ecae1" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="100.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">every-20</text>
+<circle cx="608.0" cy="114.0" r="5" fill="#6baed6" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="118.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">every-10</text>
+<circle cx="608.0" cy="132.0" r="5" fill="#3182bd" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="136.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">every-5</text>
+<circle cx="608.0" cy="150.0" r="5" fill="#08519c" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="154.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">every-1</text>
+<circle cx="608.0" cy="168.0" r="5" fill="#d95f02" stroke="#000" stroke-width="0.8"/>
+<text x="622.0" y="172.0" font-size="11" text-anchor="start" font-weight="normal" font-family="Helvetica, Arial, sans-serif">triggered-phrases-any</text>
+</svg>

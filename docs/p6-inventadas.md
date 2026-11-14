@@ -263,3 +263,12 @@ P6b pagó 6 corridas de persona entera: academic_researcher `never` + `every-20`
   3. **Muestra de P7.** Hay dos opciones:
      - **(a)** s1–210 en las 10 personas, reportando oficial y sin marcadas, y declarando que las distancias entre las políticas que sueñan seguido pueden achicarse hasta la mitad más adelante en el mes. **Recomendado.**
      - **(b)** Lo mismo, más `every-1` y `every-5` enteras en 1–2 personas para verificar la compresión: ≈ $0,7–0,8 por persona por encima de (a).
+
+## Decisiones
+
+Tomadas sobre §6, antes de P7 (2026-11-13). Rigen para P7.
+
+1. **Muestra: opción (b).** Las 10 personas monthly sobre s1–210, con 7 políticas (`never`, `every-1`, `every-5`, `every-10`, `every-20`, `every-50`, `triggered-phrases-any`) y 2 repeticiones. Además, `every-1` y `every-5` sobre la persona entera de monthly/startup_founder (academic_researcher entera ya está medida en P5–P6). Así se mide en 2 personas cuánto se achica la distancia entre `every-1` y `every-5` hacia el final del mes.
+2. **`nothing_logged`: de las dos formas.** Un "0" o un "no" dado cuando el hecho todavía no valía se reporta con la regla actual (`invented`) y también reclasificado como `stale`. La precisión no cambia.
+3. **`partial_total`: solo diagnóstico.** Va como columna aparte y nunca entra en la cuenta oficial.
+4. **Siempre 4 cuentas:** oficial (estricta), indulgente, y las dos sin las preguntas marcadas.

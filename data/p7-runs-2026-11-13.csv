@@ -1,0 +1,9 @@
+period,persona,policy,repetition,scope,stretch,sessions,dreams,sessions_read,dream_cost,decision_cost,maintenance_cost,exam_cost,exams,asked,official,lenient,reachable_asked,reachable_official,reachable_lenient,correct,stale,missing,invented,unparseable,nothing_logged,partial_total,reachable_invented,reachable_nothing_logged
+monthly,academic_researcher,never,0,s1-210,s1-210,210,0,0,0.000000,0.000000,0.000000,0.011170,30,593,142,142,585,142,142,142,123,309,19,0,19,17,19,19
+monthly,academic_researcher,every-1,0,s1-210,s1-210,210,210,210,0.123239,0.000000,0.123239,0.024837,30,593,570,570,585,569,569,570,22,1,0,0,0,0,0,0
+monthly,academic_researcher,every-5,0,s1-210,s1-210,210,42,210,0.050186,0.000000,0.050186,0.025805,30,593,537,537,585,536,536,537,38,15,3,0,3,1,3,3
+monthly,academic_researcher,every-10,0,s1-210,s1-210,210,21,210,0.039785,0.000000,0.039785,0.026715,30,593,470,470,585,470,470,470,81,40,2,0,2,1,2,2
+monthly,academic_researcher,every-20,0,s1-210,s1-210,210,10,200,0.032722,0.000000,0.032722,0.026413,30,593,451,451,585,451,451,451,94,40,8,0,8,4,8,8
+monthly,academic_researcher,every-50,0,s1-210,s1-210,210,4,200,0.027730,0.000000,0.027730,0.024477,30,593,359,359,585,358,358,359,119,102,13,0,13,13,13,13
+monthly,academic_researcher,triggered-phrases-any,0,s1-210,s1-210,210,159,210,0.101192,0.000000,0.101192,0.025047,30,593,579,579,585,578,578,579,13,1,0,0,0,0,0,0
+monthly,startup_founder,never,0,s1-210,s1-210,210,0,0,0.000000,0.000000,0.000000,0.010386,30,581,144,144,539,144,144,144,131,293,13,0,13,12,10,10

@@ -76,7 +76,7 @@ def cached_runs(arguments) -> list[PolicyRun]:
     for spec in arguments.slices:
         period, persona, through = triggered_run.slice_of(spec)
         for name in arguments.policies:
-            runs.append(run_policy(policy_named(name, arguments.budget_name, 0.0), period, persona, client, EXAM_STEP, through))
+            runs.append(run_policy(policy_named(name, arguments.budget_name, 0.0), period, persona, client, EXAM_STEP, through, arguments.repetition))
     return runs
 
 
@@ -359,6 +359,7 @@ def main() -> None:
     parser.add_argument("slices", nargs="+", help='"period/persona[:through]"')
     parser.add_argument("--policies", nargs="+", required=True)
     parser.add_argument("--budget-name", default="p6b")
+    parser.add_argument("--repetition", type=int, default=0, help="exam and notes: which repetition of the cache to read")
     parser.add_argument("--cached-through", type=int, default=STRETCH, help="estimate: sessions already paid for every policy")
     arguments = parser.parse_args()
     {"estimate": estimate, "exam": exam_report, "notes": notes_report}[arguments.command](arguments)
