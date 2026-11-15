@@ -1,6 +1,7 @@
 import re
 
 from answering.client import Completion
+from dreaming import dream_named
 from policies.engine import Decision, run_policy, score
 
 
@@ -13,8 +14,10 @@ class RecordingClient:
     def __init__(self):
         self.dream_prompts = []
         self.exam_prompts = []
+        self.calls = []
 
     def complete(self, run, system, user, max_tokens, repeat=0):
+        self.calls.append((run, system, user, max_tokens, repeat))
         if "/dream/" in run:
             self.dream_prompts.append(user)
             read = re.findall(r'<session number="(\d+)"', user)
@@ -47,3 +50,14 @@ def test_each_dream_reads_the_sessions_since_the_last_and_the_exam_sees_its_note
     assert [step.sessions_read for step in run.steps if step.dreamt] == [3, 4, 5]
     assert round(run.dream_cost(), 4) == 0.003
     assert score(run).correct < score(run).asked
+
+
+def test_the_default_dream_and_cache_make_the_same_requests_as_before_p8b():
+    # A request is cached under its run path and its content (answering/client.py), so the same calls read P7's cache.
+    before = RecordingClient()
+    run_policy(DreamAt(3, 7, 12), "weekly", "software_engineer", before, through=14, repetition=1)
+    assert all(run.startswith("p5/r1/") for run, *_ in before.calls)
+    named = RecordingClient()
+    run_policy(DreamAt(3, 7, 12), "weekly", "software_engineer", named, through=14, repetition=1, dream_function=dream_named.dream, cache_prefix="p8b")
+    assert [run.replace("p8b/", "p5/") for run, *_ in named.calls] == [run for run, *_ in before.calls]
+    assert named.dream_prompts != before.dream_prompts and dream_named.RULES in named.dream_prompts[0]

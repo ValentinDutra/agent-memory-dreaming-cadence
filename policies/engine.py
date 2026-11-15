@@ -91,11 +91,13 @@ class LastCompletion:
         return completion
 
 
-def run_policy(policy: Policy, period: str, persona: str, client: BudgetedClient, exam_every: int = EXAM_STEP, through: int | None = None, repetition: int = 0) -> PolicyRun:
+def run_policy(policy: Policy, period: str, persona: str, client: BudgetedClient, exam_every: int = EXAM_STEP, through: int | None = None, repetition: int = 0,
+               dream_function=dream, cache_prefix: str = "p5") -> PolicyRun:
     """The policy over sessions 1..through (all by default), with the exams of sessions that are multiples of exam_every.
 
-    Dreams and exams are cached by request under results/raw/p5/r<repetition>/, shared by every policy: two policies
-    that hold the same notes get the same dream and the same answers. Another repetition draws them again.
+    Dreams and exams are cached by request under results/raw/<cache_prefix>/r<repetition>/, shared by every policy: two
+    policies that hold the same notes get the same dream and the same answers. Another repetition draws them again.
+    dream_function has dreaming.dream.dream's signature; P8b passes dreaming.dream_named.dream with its own cache_prefix.
     """
     if exam_every % EXAM_STEP:
         raise ValueError(f"exam_every must be a multiple of {EXAM_STEP}, the exam's own step")
@@ -104,7 +106,7 @@ def run_policy(policy: Policy, period: str, persona: str, client: BudgetedClient
     for question in build_exam(period, persona):
         if question.session_id % exam_every == 0:
             exams.setdefault(question.session_id, []).append(question)
-    cache = f"p5/r{repetition}"
+    cache = f"{cache_prefix}/r{repetition}"
     recorder = LastCompletion(client)
     notes = ""
     pending: list[Session] = []
@@ -115,7 +117,7 @@ def run_policy(policy: Policy, period: str, persona: str, client: BudgetedClient
         decision = policy.decide(notes, list(pending), client, f"{cache}/decide/{policy.name}/{period}/{persona}")
         dreamt = None
         if decision.dream:
-            dreamt = dream(notes, pending, client, f"{cache}/dream/{period}/{persona}")
+            dreamt = dream_function(notes, pending, client, f"{cache}/dream/{period}/{persona}")
             notes = dreamt.notes
         steps.append(Step(
             session_id=session.session_id,

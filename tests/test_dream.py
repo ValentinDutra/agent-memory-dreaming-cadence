@@ -1,6 +1,8 @@
 from answering.client import Completion
 from answering.notes import render_notes
-from dreaming.dream import Replace, apply_edits, dream
+from dreaming import dream_named
+from dreaming.dream import RULES, Replace, apply_edits, dream, dream_prompt
+from dreaming.transcripts import load_transcripts
 from truth.changes import persona_changes
 from truth.timeline import build_timeline
 
@@ -80,3 +82,11 @@ def test_edits_written_after_the_closing_tag_are_applied():
     notes = dream("## To-do list\n- (none)\n\n## Calendar\n- (none)", [], ReplyingClient(reply), run="test").notes
     assert "- Weekly budget for lunch expenses: $115" in notes
     assert "- 2025-06-01: 8381 steps" in notes
+
+
+def test_the_named_dream_changes_only_the_rules_and_reads_replies_the_same_way():
+    # P8b compares the two dreams: anything else that differs in the prompt would be measured with the rules.
+    notes, sessions = notes_after(29), load_transcripts("weekly", "software_engineer")[29:31]
+    assert dream_named.dream_prompt(notes, sessions).replace(dream_named.RULES, RULES) == dream_prompt(notes, sessions)
+    reply = "<edits>\n<append section=\"To-do list\">\n- Plan weekend activities (personal tasks)\n</append>\n</edits>"
+    assert dream_named.dream(notes, sessions, ReplyingClient(reply), run="test").notes == dream(notes, sessions, ReplyingClient(reply), run="test").notes
