@@ -4,6 +4,8 @@ An agent keeps notes between sessions, and "dreaming" is the offline pass that r
 
 Sessions never write notes; only a dream does. Every 7 sessions an exam is answered from the notes alone, and graded against the true state of the user's facts at that point.
 
+Write-up: [How often should an agent dream?](https://stillcompiling.vercel.app/posts/how-often-should-an-agent-dream)
+
 ## Result
 
 10 monthly personas, sessions 1–210, 2 repetitions, 95% intervals resampled by persona (`docs/p7-corrida-final.md`):
